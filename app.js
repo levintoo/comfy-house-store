@@ -33,7 +33,27 @@ class Products{
 }
 // display products
 class UI{
+    displayProducts(products){
+        let result = '';
+        products.forEach(product => {
+            result += `
+            <!-- single products -->
+            <article class="product">
+                <div class="img-container">
+                    <img src="./images/product-1.jpeg" alt="product" class="product-img">
+                    <button class="bag-btn" data-id="1">
+                        <i class="fas fa-shopping-cart"></i>add to cart
+                    </button>
+                </div>
+                <h3>queen bed</h3>
+                <h4>$15</h4>
+            </article>
+            
+            <!-- end of single products -->
+            `
+        })
 
+    }
 }
 
 // local storage
@@ -46,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     const products = new Products();
 
     // get all products
-    products.getProducts().then(data =>{
-        console.log(data);
+    products.getProducts().then(products =>{
+       ui.displayProducts(products);
     })
 })
