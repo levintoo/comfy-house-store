@@ -1,5 +1,4 @@
 //variables
-
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
 const clearCartBtn = document.querySelector('.clear-cart');
@@ -11,10 +10,19 @@ const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
 // cart
 let cart = [];
-
 // getting the products
 class Products{
-
+    async getProducts(){       
+        try { 
+            let result = await fetch('products.json');
+           
+            console.log(result);
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+    
 }
 // display products
 class UI{
@@ -28,5 +36,7 @@ class Storage{
 
 document.addEventListener('DOMContentLoaded', () =>{
     const ui = new UI();
-    const products = new products();
+    const products = new Products();
+
+    // get all products
 })
