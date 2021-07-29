@@ -15,8 +15,8 @@ class Products{
     async getProducts(){       
         try { 
             let result = await fetch('products.json');
-           
-            console.log(result);
+            let data = await result.json();
+           return data;
         }
         catch(error){
             console.log(error);
@@ -39,4 +39,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     const products = new Products();
 
     // get all products
+    products.getProducts().then(data =>{
+        console.log(data);
+    })
 })
