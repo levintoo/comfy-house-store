@@ -71,9 +71,10 @@ class UI{
                     event.target.innerHTML= "In Cart";
                     event.target.disabled = "true";
                     // get product from productsDOM
-                    let cartItem = Storage.getProduct(id);
-                    console.log(cartItem);
+                    let cartItem = {...Storage.getProduct(id),amount:1};
                     // add product to cart
+                    cart = [...cart,cartItem];
+                    console.log(cart);
                     //save cart in local storage
                     // set cart values
                     // display cart item
